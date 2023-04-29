@@ -1,6 +1,14 @@
 import {TextLoop} from "react-text-loop-next";
 import {QuestionMarkCircleIcon, GiftTopIcon, AcademicCapIcon} from "@heroicons/react/20/solid";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faGraduationCap, faFlaskVial, faClipboardCheck
+} from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
+import Image from "next/image";
+import SignUpImage from '../../public/signup.svg';
+import Arrow1 from '../../public/arrow-1.svg';
+import Arrow2 from '../../public/arrow-2.svg';
 
 export default function Header() {
     return (
@@ -8,17 +16,18 @@ export default function Header() {
             <div className="px-4 pt-8 pb-32 mx-auto bg-secondary-header flex flex-row flex-nowrap justify-evenly items-center z-0">
                 <div className="text-start basis-1/3">
                     <h1 className="text-3xl font-medium text-gray-one font-monst">
-                        {'S\'entraîner aux entretiens, +\n' +
+                        {'S\'entraîner aux entretiens, \n' +
                             '    consulter des expert,\n' +
                             '    et prendre  des expériences\n' +
                             '    des gens prospères'}
                     </h1>
+                    <br/>
 
                     <TextLoop
                         springConfig={{ stiffness: 180, damping: 16 }}
                         mask={true}
                         className="text-left mt-2"
-                        interval={1500}
+                        interval={2500}
                     >
                         <div className="flex flex-row text-sub-text-600  items-center">
                             <h4 className="">
@@ -32,18 +41,18 @@ export default function Header() {
                             <h4 className="">Profiter de leurs expériences</h4>
                         </div>
                     </TextLoop>{" "}
-
+                    <br/>
                     <Link
-                        href='/register'
-                        className="relative inline-flex items-center mt-2 px-4 py-2 text-sm font-medium text-white transition duration-200 bg-purple-one border border-transparent rounded-md shadow-3xl font-monst">
+                        href='/signup'
+                        className="relative inline-flex items-center mt-6 px-4 py-2 text-sm font-medium text-white transition duration-200 bg-purple-one border border-transparent rounded-md shadow-3xl font-monst">
                         <span>Inscrit vous</span>
                     </Link>
                 </div>
             </div>
             <div className="flex flex-row justify-evenly items-center text-center">
-                <div className="w-1/4 pb-4 h-60 shadow-lg shadow-sub-text rounded-md bg-white text-center flex flex-col justify-between   text-center items-center relative bottom-10 z-40">
+                <div className="w-1/4 pb-4 h-60 shadow-lg shadow-sub-text rounded-md bg-white text-center flex flex-col justify-between   text-center items-center relative bottom-16 z-40">
                     <div className='bg-card-bg w-full h-1/2 flex flex-row items-center justify-center'>
-                        <AcademicCapIcon className="h-16 w-16" />
+                        <FontAwesomeIcon icon={faGraduationCap} className="h-16 w-16" />
                     </div>
                     <h4 className="text-purple-one text-lg">
                         Preparation aux Entretiens
@@ -53,14 +62,14 @@ export default function Header() {
                         des professionnels expérimentés
                     </p>
                     <Link
-                        href='/register'
+                        href='/'
                         className="relative inline-flex items-center mt-2 px-4 py-2 text-sm font-medium text-white transition duration-200 bg-purple-one border border-transparent rounded-md shadow-3xl font-monst">
                         <span>Prendre RDV</span>
                     </Link>
                 </div>
-                <div className="w-1/4 pb-4 h-60 shadow-lg shadow-sub-text rounded-md bg-white text-center flex flex-col justify-between   text-center items-center relative bottom-10 z-40">
+                <div className="w-1/4 pb-4 h-60 shadow-lg shadow-sub-text rounded-md bg-white text-center flex flex-col justify-between   text-center items-center relative bottom-16 z-40">
                     <div className='bg-card-bg w-full h-1/2 flex flex-row items-center justify-center'>
-                        <QuestionMarkCircleIcon className="h-16 w-16" />
+                        <FontAwesomeIcon icon={faClipboardCheck} className="h-16 w-16" />
                     </div>
                     <h4 className="text-purple-one text-lg">
                         Consultation en ligne
@@ -71,14 +80,14 @@ export default function Header() {
                         {'procedure d\'etude a l\'etranger'}
                     </p>
                     <Link
-                        href='/register'
+                        href='/'
                         className="relative inline-flex items-center mt-2 px-4 py-2 text-sm font-medium text-white transition duration-200 bg-purple-one border border-transparent rounded-md shadow-3xl font-monst">
                         <span>Prendre RDV</span>
                     </Link>
                 </div>
-                <div className="w-1/4 pb-4 h-60 shadow-lg shadow-sub-text rounded-md bg-white text-center flex flex-col justify-between   text-center items-center relative bottom-10 z-40">
+                <div className="w-1/4 pb-4 h-60 shadow-lg shadow-sub-text rounded-md bg-white text-center flex flex-col justify-between   text-center items-center relative bottom-16 z-40">
                     <div className='bg-card-bg w-full h-1/2 flex flex-row items-center justify-center'>
-                        <GiftTopIcon className="h-16 w-16" />
+                        <FontAwesomeIcon icon={faFlaskVial} className="h-16 w-16" />
                     </div>
                     <h4 className="text-purple-one text-lg">
                         Prendre l’experience
@@ -88,16 +97,119 @@ export default function Header() {
                             'des expériences d\'entrepreneurs, d\'étudiants ...'}
                     </p>
                     <Link
-                        href='/register'
+                        href='/'
                         className="relative inline-flex items-center mt-2 px-4 py-2 text-sm font-medium text-white transition duration-200 bg-purple-one border border-transparent rounded-md shadow-3xl font-monst">
                         <span>Prendre RDV</span>
                     </Link>
                 </div>
             </div>
-            <div className="flex flex-row justify-evenly items-center text-center">
-                <h3 className="">
-
+            <div className="flex flex-col justify-evenly items-center text-center">
+                <h3 className="text-4xl font-medium my-16">
+                    Comment Ca marche!
                 </h3>
+                <div className="flex flex-row justify-evenly items-center text-center w-full px-24">
+                    <div className="flex flex-col justify-evenly items-center text-center">
+                        <Image
+                            alt="signup image"
+                            src={SignUpImage}
+                            width={240}
+                            height={240}
+                            style={{
+                                maxWidth: '100%',
+                                height: 'auto',
+                            }}
+                        />
+                    </div>
+                    <div className="flex flex-col justify-evenly items-center text-center">
+                    <h5 className="text-xl mb-4 font-medium">
+                        CRÉER UN COMPTE
+                    </h5>
+                    <p className="text-md font-medium text-start">
+                        Inscrivez-vous avec votre email, Vérifiez-le et vous êtes prêt à vous
+                        <br/>
+                        lancer dans un voyage qui changera votre vie. Connectez-vous pour
+                        <br/>
+                        commencer à parcourir nos ressources GRATUITES triées sur le volet.
+                    </p>
+                    </div>
+                </div>
+                <div className="relative z-30 bottom-10">
+                    <Image
+                        alt="arrow image"
+                        src={Arrow1}
+                        width={280}
+                        height={180}
+                        style={{
+                            maxWidth: '100%',
+                            height: 'auto',
+                        }}
+                    />
+                </div>
+                <div className="flex flex-row justify-evenly items-center text-center w-full px-24  relative z-20 bottom-20">
+                    <div className="flex flex-col justify-evenly items-center text-center">
+                        <h5 className="text-xl mb-4 font-medium">
+                            CRÉER UN COMPTE
+                        </h5>
+                        <p className="text-md font-medium text-start">
+                            Inscrivez-vous avec votre email, Vérifiez-le et vous êtes prêt à vous
+                            <br/>
+                            lancer dans un voyage qui changera votre vie. Connectez-vous pour
+                            <br/>
+                            commencer à parcourir nos ressources GRATUITES triées sur le volet.
+                        </p>
+                    </div>
+                    <div className="flex flex-col justify-evenly items-center text-center">
+                        <Image
+                            alt="signup image"
+                            src={SignUpImage}
+                            width={240}
+                            height={240}
+                            style={{
+                                maxWidth: '100%',
+                                height: 'auto',
+                            }}
+                        />
+                    </div>
+
+                </div>
+                <div className="relative z-20 bottom-20">
+                    <Image
+                        alt="arrow image"
+                        src={Arrow2}
+                        width={280}
+                        height={180}
+                        style={{
+                            maxWidth: '100%',
+                            height: 'auto',
+                        }}
+                    />
+                </div>
+                <div className="flex flex-row justify-evenly items-center text-center w-full px-24 relative z-20 bottom-40">
+                    <div className="flex flex-col justify-evenly items-center text-center">
+                        <Image
+                            alt="signup image"
+                            src={SignUpImage}
+                            width={240}
+                            height={240}
+                            style={{
+                                maxWidth: '100%',
+                                height: 'auto',
+                            }}
+                        />
+                    </div>
+                    <div className="flex flex-col justify-evenly items-center text-center">
+                        <h5 className="text-xl mb-4 font-medium">
+                            CRÉER UN COMPTE
+                        </h5>
+                        <p className="text-md font-medium text-start">
+                            Inscrivez-vous avec votre email, Vérifiez-le et vous êtes prêt à vous
+                            <br/>
+                            lancer dans un voyage qui changera votre vie. Connectez-vous pour
+                            <br/>
+                            commencer à parcourir nos ressources GRATUITES triées sur le volet.
+                        </p>
+                    </div>
+                </div>
             </div>
         </header>
     );
