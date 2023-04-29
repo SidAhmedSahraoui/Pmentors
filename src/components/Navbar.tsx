@@ -25,6 +25,13 @@ const services = [
         href: '/sharing',
         icon: GiftTopIcon,
     },
+    {
+        name: 'Prendre l’experience',
+        description: 'Bénéficiez des conseils, des informations et\n' +
+            '                        des expériences d\'entrepreneurs, d\'étudiants ...',
+        href: '/sharing',
+        icon: GiftTopIcon,
+    },
 ]
 
 const about = [

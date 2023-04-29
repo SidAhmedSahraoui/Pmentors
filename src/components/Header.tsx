@@ -8,10 +8,10 @@ export default function Header() {
             <div className="px-4 pt-8 pb-32 mx-auto bg-secondary-header flex flex-row flex-nowrap justify-evenly items-center z-0">
                 <div className="text-start basis-1/3">
                     <h1 className="text-3xl font-medium text-gray-one font-monst">
-                        S'entraîner aux entretiens,
-                        consulter des expert, <br />
-                        et prendre  des expériences
-                        des gens prospères
+                        {'S\'entraîner aux entretiens, +\n' +
+                            '    consulter des expert,\n' +
+                            '    et prendre  des expériences\n' +
+                            '    des gens prospères'}
                     </h1>
 
                     <TextLoop
@@ -68,7 +68,7 @@ export default function Header() {
                     <p className="mt-2 text-sm text-gray-one">
                         Entrepreneuriat, obtenir un job,
                         <br/>
-                        procedure d'etude a l'etranger
+                        {'procedure d\'etude a l\'etranger'}
                     </p>
                     <Link
                         href='/register'
@@ -84,8 +84,8 @@ export default function Header() {
                         Prendre l’experience
                     </h4>
                     <p className="mt-2 text-sm text-gray-one">
-                        Bénéficiez des conseils, des informations et
-                        des expériences d'entrepreneurs, d'étudiants ...
+                        {'Bénéficiez des conseils, des informations et\n' +
+                            'des expériences d\'entrepreneurs, d\'étudiants ...'}
                     </p>
                     <Link
                         href='/register'
