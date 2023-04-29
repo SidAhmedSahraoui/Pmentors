@@ -13,6 +13,7 @@ module.exports = {
         'sub-text': 'rgb(172 172 172)',
         'purple-two': '#9333ea',
         'blue-one': '#4f46e5',
+        'card-bg': '#F2E7FE'
       },
       boxShadow: {
         '3xl': '0 10px 15px -3px rgb(0 0 0 / 0.1)',

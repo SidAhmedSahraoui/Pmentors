@@ -1,8 +1,7 @@
 import Link from "next/link";
 import {ArrowRightOnRectangleIcon, ChevronDownIcon, AcademicCapIcon, QuestionMarkCircleIcon, GiftTopIcon} from "@heroicons/react/20/solid";
 import {Popover, Transition} from '@headlessui/react';
-import {Fragment} from 'react'
-
+import {Fragment} from 'react';
 
 const services = [
     {
@@ -56,11 +55,9 @@ export default function Navbar() {
         <>
             <div className="px-4 mx-auto sm:px-6 lg:px-8 h-20 w-screen">
                 <div className="flex justify-between h-full">
-                    <div className="flex">
-                        <div className="flex items-center flex-shrink-0">
-                            <h1 className="">Pmentors Logo</h1>
-                        </div>
-                    </div>
+                    <Link className="flex items-center w-2/5" href='/'>
+                        <img src='public/logo.svg' alt='Pmetors logo'/>
+                    </Link>
 
                     <div className="flex items-center w-2/5">
                         <div className="flex justify-between items-center w-full">
