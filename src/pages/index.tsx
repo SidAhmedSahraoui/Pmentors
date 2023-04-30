@@ -1,18 +1,16 @@
-import Head from "next/head";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
+import { PageSEO } from '@/components/SEO'
+import siteMetadata from '@/data/siteMetadata'
 
 export default function Home() {
   return (
     <>
-          <Head>
-              <title>Pmentors | Better interview preparing</title>
-              <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          </Head>
-          <div className="relative pb-20">
+        <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
+        <div className="relative pb-20">
               <Navbar />
               <Header />
-          </div>
+        </div>
       </>
   )
 }

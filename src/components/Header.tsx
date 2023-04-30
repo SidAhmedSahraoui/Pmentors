@@ -13,7 +13,7 @@ import Arrow2 from '../../public/arrow-2.svg';
 export default function Header() {
     return (
         <header>
-            <div className="px-4 pt-8 pb-32 mx-auto bg-secondary-header flex flex-row flex-nowrap justify-evenly items-center z-0">
+            <div className="pt-24 pb-48 mx-auto bg-secondary-header flex flex-row flex-nowrap justify-evenly items-center z-0">
                 <div className="text-start basis-1/3">
                     <h1 className="text-3xl font-medium text-gray-one font-monst">
                         {'S\'entraîner aux entretiens, \n' +
@@ -44,7 +44,7 @@ export default function Header() {
                     <br/>
                     <Link
                         href='/signup'
-                        className="relative inline-flex items-center mt-6 px-4 py-2 text-sm font-medium text-white transition duration-200 bg-purple-one border border-transparent rounded-md shadow-3xl font-monst">
+                        className='inline-block rounded-2xl w-auto border bg-blue-one shadow-[inset_0_-5px_0_0_rgb(0_0_0_/_8%),0_4px_4px_0_rgb(0_0_0_/_4%)] text-white py-2 px-4 mt-4 border-solid border-[rgba(56,56,56,0.08)]'>
                         <span>Inscrit vous</span>
                     </Link>
                 </div>
@@ -63,7 +63,7 @@ export default function Header() {
                     </p>
                     <Link
                         href='/'
-                        className="relative inline-flex items-center mt-2 px-4 py-2 text-sm font-medium text-white transition duration-200 bg-purple-one border border-transparent rounded-md shadow-3xl font-monst">
+                        className='inline-block rounded-2xl w-auto border bg-blue-one shadow-[inset_0_-5px_0_0_rgb(0_0_0_/_8%),0_4px_4px_0_rgb(0_0_0_/_4%)] text-white py-2 px-4 mt-4 border-solid border-[rgba(56,56,56,0.08)]'>
                         <span>Prendre RDV</span>
                     </Link>
                 </div>
@@ -81,7 +81,7 @@ export default function Header() {
                     </p>
                     <Link
                         href='/'
-                        className="relative inline-flex items-center mt-2 px-4 py-2 text-sm font-medium text-white transition duration-200 bg-purple-one border border-transparent rounded-md shadow-3xl font-monst">
+                        className='inline-block rounded-2xl w-auto border bg-blue-one shadow-[inset_0_-5px_0_0_rgb(0_0_0_/_8%),0_4px_4px_0_rgb(0_0_0_/_4%)] text-white py-2 px-4 mt-4 border-solid border-[rgba(56,56,56,0.08)]'>
                         <span>Prendre RDV</span>
                     </Link>
                 </div>
@@ -98,7 +98,7 @@ export default function Header() {
                     </p>
                     <Link
                         href='/'
-                        className="relative inline-flex items-center mt-2 px-4 py-2 text-sm font-medium text-white transition duration-200 bg-purple-one border border-transparent rounded-md shadow-3xl font-monst">
+                        className='inline-block rounded-2xl w-auto border bg-blue-one shadow-[inset_0_-5px_0_0_rgb(0_0_0_/_8%),0_4px_4px_0_rgb(0_0_0_/_4%)] text-white py-2 px-4 mt-4 border-solid border-[rgba(56,56,56,0.08)]'>
                         <span>Prendre RDV</span>
                     </Link>
                 </div>

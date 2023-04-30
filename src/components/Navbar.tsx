@@ -82,14 +82,15 @@ export default function Navbar() {
 
     return (
         <>
-            <div className="px-4 mx-auto bg-bg-color sm:px-6 lg:px-8 h-20 w-screen">
+            <div className="px-4 mx-auto bg-bg-color sm:px-6 lg:px-8 h-20 border-b-2 rounded-b-2xl drop-shadow-sm w-screen">
                 <div className="flex justify-between h-full">
-                    <Link className="flex items-center w-2/5" href='/'>
+                    <Link className="flex items-center w-fit cursor-default" href='/'>
                         <Image
                             alt="Pmentors Logo"
                             src={Logo}
                             width={150}
                             height={25}
+                            className='cursor-pointer'
                             style={{
                                 maxWidth: '100%',
                                 height: 'auto',
@@ -270,7 +271,7 @@ export default function Navbar() {
                             </Link>
                             <Link
                                 href='/login'
-                                className="relative inline-flex items-center px-4 py-2 text-sm font-medium text-white transition duration-200 bg-purple-one border border-transparent rounded-md shadow-3xl font-monst hover:">
+                                className="relative inline-flex items-center px-4 py-2 mx-6 text-sm font-medium text-white transition duration-200 bg-purple-one border border-transparent rounded-md shadow-3xl font-monst hover:">
                                 <span>Log in</span>
                                 <ArrowRightOnRectangleIcon className="w-4 h-6 ml-1" aria-hidden="true"/>
                             </Link>
