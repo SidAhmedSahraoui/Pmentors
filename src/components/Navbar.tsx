@@ -125,8 +125,14 @@ export default function Navbar() {
                                             <Popover.Panel
                                                 className="absolute w-96 h-fit left-1/2 z-10 mt-3 -translate-x-1/2 transform px-4 sm:px-0">
                                                 <div
+<<<<<<< HEAD
                                                     className="overflow-hidden h-full rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                                                     <div className="relative h-full flex-col justify-evenly items-center content-center backdrop-blur-sm bg-gray-one p-7">
+=======
+                                                    className="overflow-hidden h-full rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-gray-one/70"
+                                                    style={{backdropFilter: 'blur(24px)'}}>
+                                                    <div className="relative h-full flex-col justify-evenly items-center content-center p-7">
+>>>>>>> c99b5e1 (Add SEO layer)
                                                         {services.map((item) => (
                                                             <Link
                                                                 key={item.name}
