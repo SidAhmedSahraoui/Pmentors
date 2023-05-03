@@ -1,141 +1,137 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from "react";
+import useStyles from "./style";
+import {Input, Grid, Typography, Button, Alert} from "@mui/material";
+import { changeEmail, changePassword, loginUser } from "../../redux/auth/auth-slice";
+import { resetState } from "../../redux/auth/register-slice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import colors from "../styling/colors";
+import  Link  from "next/link";
+// app layout
+import { CardBox } from "../layout/CardBox";
 
-// Actions
-import { login } from '../../redux/actions/authActions';
 
-import useStyles from './auth-jss';
-import Link from "next/link";
-import toast, {Toaster} from "react-hot-toast";
-import GoogleLogin from "react-google-login";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faFacebook} from "@fortawesome/free-brands-svg-icons";
+const Login: React.FC = () => {
+  const classes = useStyles();
+  const dispatch = useAppDispatch();
+  const {  email, password, errorMessage } =
+    useAppSelector((state) => state.auth);
+  const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
 
-const Login = (props:any) => {
-    const {
-        isAuthenticated,
-        error,
-        loading,
-        login,
-        clearErrors,
-        setAlert,
-    } = props;
+    dispatch(changeEmail(value));
+  };
+  const handleChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
 
-    const classes = useStyles();
+    dispatch(changePassword(value));
+  };
+  useEffect(() => {}, []);
 
-    const [user, setUser] = useState({
-        username: '',
-        password: '',
-    });
+  return (
+    <>
+      <div className={classes.root}>
+        <br/>
+        <br/>
+        <h2>La Solution Optimale Pour Une Meilleure Préparation Des Entretiens</h2>
+        <br/>
 
-    const { username, password } = user;
-
-    const onChange = (e:React.ChangeEvent<HTMLInputElement>) => setUser({ ...user, [e.target.name]: e.target.value });
-
-    useEffect(() => {
-        if (isAuthenticated) {
-            props.history.push('/');
-        }
-
-        // eslint-disable-next-line
-    }, [isAuthenticated, props.history]);
-
-    useEffect(() => {
-        if (error) {
-            setAlert(error);
-            clearErrors();
-        }
-
-        // eslint-disable-next-line
-    }, [error]);
-
-    const onSubmit = (e:React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-
-        if (username === '' || password === '') {
-            toast.error('Please enter all fields');
-        } else {
-            login({ username, password });
-        }
-    };
-
-    const customResponse = () => {
-        toast('Social auth is not available yet!',
-            {
-                icon: '👏',
-                style: {
-                    borderRadius: '10px',
-                    background: '#333',
-                    color: '#fff',
-                },
-            }
-        );
-    }
-
-    return (
-        <>
-            <div className={`${classes.root} card-shadow text-center`}>
-                <Toaster />
-                <h3 className='title'>Sign in</h3>
-                <div className="social py-4">
-                    <GoogleLogin
-                        className="!rounded-lg"
-                        clientId="865137569538-2k4mc40dur78flg8p1ncbu39h9n1tjtr.apps.googleusercontent.com"
-                        buttonText="Login with Google"
-                        onSuccess={customResponse}
-                        onFailure={customResponse}
-                    />
-                </div>
-                <h6 className='subtitle'>Ou bien.</h6>
-
-                <form className='mt-4' onSubmit={onSubmit}>
-                    <div className='form-group'>
-                        <input
-                            className='input-text'
-                            type='text'
-                            name='username'
-                            value={username}
-                            placeholder='Username'
-                            onChange={onChange}
-                            required
-                        />
-                    </div>
-
-                    <div className='form-group'>
-                        <input
-                            className='input-text'
-                            type='password'
-                            name='password'
-                            value={password}
-                            placeholder='Password'
-                            onChange={onChange}
-                            required
-                        />
-                    </div>
-                    <input
-                        type='submit'
-                        value='Login'
-                        className='inline-block cursor-pointer rounded-2xl w-auto border bg-blue-one shadow-[inset_0_-5px_0_0_rgb(0_0_0_/_8%),0_4px_4px_0_rgb(0_0_0_/_4%)] text-white py-2 px-4 mt-4 mb-4 border-solid border-[rgba(56,56,56,0.08)]'
-
-                    />
-
-                </form>
-
-                <p className='form-link mt-3 cursor-pointer	'>
-                    J’ai pas un compte?{' '}
-                    <Link href='/signup'>
-                        <span>Crée un compte.</span>
-                    </Link>
-                </p>
-            </div>
-        </>
-    );
+        <CardBox>
+          <Typography sx={{margin: "12px !important", textAlign: "center"}} className="title" variant="h5" mb={3}>
+            Login
+          </Typography>
+        
+          {errorMessage && (
+          <Grid className="alert-grid" item xs={12} mb={4}>
+            <Alert className="alert" variant="filled" severity="warning">
+              {errorMessage}
+            </Alert>
+          </Grid>
+        )}
+          <form className="form">
+          <Grid item xs={12} mb={3}>
+            <Input
+              type="Email"
+              value={email}
+              onChange={handleChangeEmail}
+              disableUnderline
+              placeholder="Email"
+              sx={{
+                borderRadius: "4px",
+                backgroundColor: '#fcfcfb',
+                border: `2px solid ${colors.gray}`,
+                fontSize: "14px",
+                fontWeight: 400,
+                width: '344px',
+                height:"40px",
+                padding: '10px 8px',
+                
+              }}
+            />
+          </Grid>
+          <Grid item xs={12} mb={3}>
+            <Input
+            type="Password"
+              value={password}
+              placeholder="Password"
+              disableUnderline
+              onChange={handleChangePassword}
+              sx={{
+                borderRadius: "4px",
+                backgroundColor: '#fcfcfb',
+                border: `2px solid ${colors.gray}`,
+                fontSize: "14px",
+                fontWeight: 400,
+                width: '344px',
+                height:"40px",
+                padding: '10px 8px',
+                
+              }}
+            />
+          </Grid>
+          <Grid className="button">
+          <Button
+                  variant="text"
+                  disableElevation
+                  sx={{
+                    boxShadow: "none",
+                    textTransform: "none",
+                    fontSize: 16,
+                    padding: "14px auto",
+                    border: "1px solid",
+                    lineHeight: 1.5,
+                    borderColor: colors.blue,
+                    width: "344px",
+                    marginBottom: "24px",
+                    "&:hover": {
+                      backgroundColor: colors.blue,
+                      color: colors["text-gray-100"],
+                      borderColor: colors.blue,
+                      boxShadow: "none",
+                    },
+                  }}
+                  name="next"
+                  onClick={() => dispatch(loginUser())}>
+                  Login
+                </Button>
+          </Grid>
+          <Grid className="links">
+          <Typography
+                className="sub-title"
+                variant="h6"
+                mb={3}>
+                {'Je n\'ai pas de compte?'}
+              </Typography>
+            <Link onClick={() => null} className="link" href="/signup">
+              <span>
+                {'Crée un compte'}
+              </span>
+            </Link>
+          </Grid>
+          </form>
+        </CardBox>
+      </div>
+    </>
+  );
 };
 
-
-const mapSateToProps = (state: any) => ({
-    isAuthenticated: state.auth.isAuthenticated,
-    loading: state.auth.loading,
-});
-
-export default connect(mapSateToProps, { login })(Login);
+export default Login;
