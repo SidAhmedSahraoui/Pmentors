@@ -1,6 +1,10 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     primary: '#9333ea',
+    secondary: "#E8F0FE ",
     'primary-hover': '#46B0C6',
+    gray: " #ADB0B8",
+    blue: "#4C84FF",
     danger: '#dc5f5f',
     request: '#9340e6',
     'text-transparent': 'transparent',

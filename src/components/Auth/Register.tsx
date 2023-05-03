@@ -1,212 +1,290 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import useStyles from "./style";
+import  Link  from "next/link";
+import {
+  Input,
+  Grid,
+  Typography,
+  Button,
+  FormHelperText,
+  Checkbox,
+  Icon,
+} from "@mui/material";
+import InputBase from "@mui/material/InputBase";
+import { styled } from "@mui/material/styles";
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import {
+  changeEmail,
+  changePassword,
+  changeFirstName,
+  changeLastName,
+  changePhone,
+  changeUserName,
+  validateEmail,
+  validateForm,
+  registerUser,
+  resetState,
+} from "../../redux/auth/register-slice";
 
-// Actions
-import { register, clearErrors } from '../../redux/actions/authActions';
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import colors from "../styling/colors";
 
-import useStyles from './auth-jss';
-import Link from "next/link";
-import toast, {Toaster} from "react-hot-toast";
-import GoogleLogin from "react-google-login";
-// @ts-ignore
-import FacebookLogin from 'react-facebook-login';
-import { faFacebook} from "@fortawesome/free-brands-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faFlaskVial} from "@fortawesome/free-solid-svg-icons";
+// app layout
+import { CardBox } from "../layout/CardBox";
 
-const Register = (props: any) => {
-    const {
-        isAuthenticated,
-        error,
-        loading,
-        register,
-        clearErrors,
-        setAlert,
-    } = props;
+const Register: React.FC = () => {
+  const classes = useStyles();
+  const dispatch = useAppDispatch();
+  const {
+    email,
+    username,
+    firstName,
+    lastName,
+    phone,
+    password,
+    accept,
+    isValid,
+    isExist,
+    formValid,
+    errorMessage,
+  } = useAppSelector((state) => state.create);
 
-    const classes = useStyles();
+  const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
 
-    const [user, setUser] = useState({
-        username: '',
-        phone: '',
-        email: '',
-        password: '',
-        password2: '',
-    });
+    dispatch(changeEmail(value));
+  };
+  const handleChangeUserName = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
 
-    const { username, phone, email, password, password2 } = user;
+    dispatch(changeUserName(value));
+  };
+  const handleChangeFirstName = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
 
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => setUser({ ...user, [e.target.name]: e.target.value });
+    dispatch(changeFirstName(value));
+  };
+  const handleChangeLastName = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
 
-    useEffect(() => {
-        if (isAuthenticated) {
-            props.history.push('/');
-        }
+    dispatch(changeLastName(value));
+  };
+  const handleChangePhone = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
 
-        // eslint-disable-next-line
-    }, [isAuthenticated, props.history]);
+    dispatch(changePhone(value));
+  };
+  const handlechangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
 
-    useEffect(() => {
-        if (error) {
-            if (typeof error === 'object') {
-                if (error.errors && error.errors.length > 0) {
-                    error.errors.forEach((err:any) => {
-                        toast(err.msg);
-                        clearErrors();
-                    });
-                }
-            } else {
-                toast(error);
-                clearErrors();
-            }
-        }
+    dispatch(changePassword(value));
+  };
 
-        // eslint-disable-next-line
-    }, [error]);
+  const CustomInput = styled(InputBase)(({ theme }) => ({
+    "label + &": {
+      marginTop: theme.spacing(3),
+    },
+    "& .MuiSvgIcon-root": {
+      top: "12px !important",
+    },
+    "& .MuiInputBase-input": {
+      width: "300px",
+      height: "40px !important",
+      borderRadius: "4px",
+      backgroundColor: "#fcfcfb",
+      border: `2px solid ${colors.gray}`,
+      fontSize: "14px",
+      fontWeight: 400,
+      color: colors.gray,
+      padding: "0px",
+      margin: "auto",
+      marginBottom: "24px",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      paddingLeft: "8px",
+      "&:focus": {
+        borderRadius: "4px",
+        border: `2px solid ${colors.gray}`,
+      },
+    },
+  }));
 
-    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+  return (
+    <>
+      <div className={classes.root}>
+          <br/>
+          <br/>
+        <h2>Rejoignez Une Nouvelle Expérience De Préparation Aux Entretiens</h2>
+          <br/>
+            <CardBox>
+              <Typography className="title reg-title" variant="h4" mb={3}>
+                Sign Up
+              </Typography>
+              <Typography
+                sx={{ margin: "12px !important", textAlign: "center" }}
+                className="sub-title"
+                variant="h6"
+                mb={3}>
+                {'Crée un compte'}
+              </Typography>
 
-        if (username === '' || phone === '' || email === '' || password === '') {
-            toast.error('Veuillez remplir tous les champs');
-        } else if (password.length < 8) {
-            toast.error('Le mot de passe doit contenir au moins 8 caractères');
-        } else if (password !== password2) {
-            toast.error('Les mots de passe ne sont pas les même');
-        } else {
-            // Register function
-            await register({ username, phone, email, password });
-        }
-    };
+              <form className="form">
+                <Grid item xs={12} mb={3}>
+                  <Input
+                    type="email"
+                    value={email}
+                    onChange={handleChangeEmail}
+                    disableUnderline
+                    placeholder="Email"
+                    sx={{
+                      borderRadius: "4px",
+                      backgroundColor: "#fcfcfb",
+                      border: `2px solid ${colors.gray}`,
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      width: "344px",
+                      height: "40px",
+                      padding: "10px 8px",
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} mb={3}>
+                  <Input
+                    type="text"
+                    value={username}
+                    onChange={handleChangeUserName}
+                    disableUnderline
+                    placeholder="Username"
+                    sx={{
+                      borderRadius: "4px",
+                      backgroundColor: "#fcfcfb",
+                      border: `2px solid ${colors.gray}`,
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      width: "344px",
+                      height: "40px",
+                      padding: "10px 8px",
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} mb={3}>
+                  <Input
+                    type="text"
+                    value={firstName}
+                    onChange={handleChangeFirstName}
+                    disableUnderline
+                    placeholder="Nom"
+                    sx={{
+                      borderRadius: "4px",
+                      backgroundColor: "#fcfcfb",
+                      border: `2px solid ${colors.gray}`,
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      width: "344px",
+                      height: "40px",
+                      padding: "10px 8px",
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} mb={3}>
+                  <Input
+                    type="text"
+                    value={lastName}
+                    onChange={handleChangeLastName}
+                    disableUnderline
+                    placeholder="Prénom"
+                    sx={{
+                      borderRadius: "4px",
+                      backgroundColor: "#fcfcfb",
+                      border: `2px solid ${colors.gray}`,
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      width: "344px",
+                      height: "40px",
+                      padding: "10px 8px",
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} mb={3}>
+                  <Input
+                    type="number"
+                    value={phone}
+                    onChange={handleChangePhone}
+                    disableUnderline
+                    placeholder="Téléphone"
+                    sx={{
+                      borderRadius: "4px",
+                      backgroundColor: "#fcfcfb",
+                      border: `2px solid ${colors.gray}`,
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      width: "344px",
+                      height: "40px",
+                      padding: "10px 8px",
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} mb={3}>
+                  <Input
+                    type="password"
+                    value={password}
+                    onChange={handlechangePassword}
+                    disableUnderline
+                    placeholder="Mot de passe"
+                    sx={{
+                      borderRadius: "4px",
+                      backgroundColor: "#fcfcfb",
+                      border: `2px solid ${colors.gray}`,
+                      fontSize: "14px",
+                      fontWeight: 400,
+                      width: "344px",
+                      height: "40px",
+                      padding: "10px 8px",
+                    }}
+                  />
+                </Grid>
 
-    const customResponse = () => {
-        toast('Social auth is not available yet!',
-            {
-                icon: '👏',
-                style: {
-                    borderRadius: '10px',
-                    background: '#333',
-                    color: '#fff',
-                },
-            }
-        );
-    }
-
-    return (
-        <>
-            <div className={`${classes.root} card-shadow text-center`}>
-                <Toaster/>
-
-                <h3 className='title'>Creer un compte</h3>
-                <div className="social py-4">
-                    <GoogleLogin
-                        className="!rounded-lg"
-                        clientId="865137569538-2k4mc40dur78flg8p1ncbu39h9n1tjtr.apps.googleusercontent.com"
-                        buttonText="Login with Google"
-                        onSuccess={customResponse}
-                        onFailure={customResponse}
-                    />
-                    {/*<FacebookLogin
-                        appId=""
-                        autoLoad={false}
-                        fields="name,email,picture"
-                        onClick={customResponse}
-                        callback={customResponse()}
-                        cssClass="btnFacebook"
-                        textButton="&nbsp;&nbsp;Sign In with Facebook"
-                        icon={<FontAwesomeIcon icon={faFacebook} className="h-8 w-8"/>}
-                    />*/}
-                </div>
-                <h6 className='subtitle'>Ou bien</h6>
-
-                <form className='mt-4' onSubmit={onSubmit}>
-                    <div className='form-group'>
-                        <input
-                            className='input-text'
-                            type='text'
-                            name='username'
-                            value={username}
-                            placeholder='Username'
-                            onChange={onChange}
-                            // required
-                        />
-                    </div>
-
-                    <div className='form-group'>
-                        <input
-                            className='input-text'
-                            type='text'
-                            name='phone'
-                            value={phone}
-                            placeholder='Phone'
-                            onChange={onChange}
-                            // required
-                        />
-                    </div>
-
-                    <div className='form-group'>
-                        <input
-                            className='input-text'
-                            type='email'
-                            name='email'
-                            value={email}
-                            placeholder='Email'
-                            onChange={onChange}
-                            // required
-                        />
-                    </div>
-
-                    <div className='form-group'>
-                        <input
-                            className='input-text'
-                            type='password'
-                            name='password'
-                            value={password}
-                            placeholder='Password'
-                            onChange={onChange}
-                            // required
-                        />
-                    </div>
-
-                    <div className='form-group'>
-                        <input
-                            className='input-text'
-                            type='password'
-                            name='password2'
-                            value={password2}
-                            placeholder='Password confirmation'
-                            onChange={onChange}
-                            // required
-                        />
-                    </div>
-
-                        <input
-                            type='submit'
-                            value='Register'
-                            className='inline-block cursor-pointer rounded-2xl w-auto border bg-blue-one shadow-[inset_0_-5px_0_0_rgb(0_0_0_/_8%),0_4px_4px_0_rgb(0_0_0_/_4%)] text-white py-2 px-4 mt-4 mb-4 border-solid border-[rgba(56,56,56,0.08)]'
-
-                        />
-
-                </form>
-
-                <p className='form-link mt-3 cursor-pointer	'>
-                    J’ai déja un compte?{' '}
-                    <Link href='/login'>
-                        <span>Connexion.</span>
-                    </Link>
-                </p>
-            </div>
-        </>
-    );
+              </form>
+              <Grid>
+              <Button
+                  variant="text"
+                  disableElevation
+                  sx={{
+                    boxShadow: "none",
+                    textTransform: "none",
+                    fontSize: 16,
+                    padding: "14px auto",
+                    border: "1px solid",
+                    lineHeight: 1.5,
+                    borderColor: colors.blue,
+                    width: "344px",
+                    marginBottom: "24px",
+                    "&:hover": {
+                      backgroundColor: colors.blue,
+                      color: colors["text-gray-100"],
+                      borderColor: colors.blue,
+                      boxShadow: "none",
+                    },
+                  }}
+                  name="next"
+                  onClick={() => dispatch(registerUser())}>
+                  Crée un compte
+                </Button>
+              </Grid>
+            <Link className="log-link" href="/login">
+              Go to login page
+            </Link>
+            </CardBox>
+      
+      </div>
+    </>
+  );
 };
 
-
-const mapSateToProps = (state:any) => ({
-    error: state.auth.error,
-    isAuthenticated: state.auth.isAuthenticated,
-    loading: state.auth.loading,
-});
-
-export default connect(mapSateToProps, { register, clearErrors })(
-    Register
-);
+export default Register;

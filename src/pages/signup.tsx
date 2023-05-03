@@ -9,7 +9,7 @@ export default function index() {
                 <title>Pmentors | Sign up</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
-            <div className="relative pb-20">
+            <div className="relative">
                 <Navbar />
                 <Register />
             </div>
