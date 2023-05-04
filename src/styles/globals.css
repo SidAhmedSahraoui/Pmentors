@@ -1,10 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@layer base {
+    * {
+      --tw-backdrop-sepia:  ;
+      --will-be-deleted: ; 
+    }
+  }
 html {
     background-color: rgba(245, 245, 245, 1);
 }
+
 @font-face {
     font-family: "Montserrat";
     font-style: normal;

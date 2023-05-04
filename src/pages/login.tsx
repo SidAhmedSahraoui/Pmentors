@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Navbar from "@/components/Navbar";
-import Login from "@/components/Auth/Login";
+import Login from "@/components/auth/Login";
 
 export default function index() {
     return (
