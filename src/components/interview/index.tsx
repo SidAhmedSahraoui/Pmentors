@@ -3,11 +3,11 @@ import useStyles from "./style";
 import { Categories } from "@/types/types";
 import { Tab } from '@headlessui/react'
 import Image from 'next/image';
-import Euro from '../../../public/European.jpg' 
-import Front from '../../../public/Frontend.jpg'
-import Back from '../../../public/Backend.jpg'
-import FullStack from '../../../public/Fullstack.jpg'
-import Design from '../../../public/Design.jpg'
+import Euro from '../../../public/img/European.jpg' 
+import Front from '../../../public/img/Frontend.jpg'
+import Back from '../../../public/img/Backend.jpg'
+import FullStack from '../../../public/img/Fullstack.jpg'
+import Design from '../../../public/img/Design.jpg'
 
 
 const defaultCategories = {
