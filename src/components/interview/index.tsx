@@ -3,11 +3,8 @@ import useStyles from "./style";
 import { Categories } from "@/types/types";
 import { Tab } from '@headlessui/react'
 import Image from 'next/image';
-import Euro from '../../../public/img/European.jpg' 
-import Front from '../../../public/img/Frontend.jpg'
-import Back from '../../../public/img/Backend.jpg'
-import FullStack from '../../../public/img/Fullstack.jpg'
-import Design from '../../../public/img/Design.jpg'
+import Euro from '../../../public/img/Euro.png' 
+
 
 
 const defaultCategories = {
@@ -26,7 +23,7 @@ const defaultCategories = {
           description: 'Assurez-vous d\'avoir les connaissances nécessaires pour obtenir ' +
           'votre premier emploi en tant qu\'ingénieur Fullstack web et grandir dans ' +
           'votre première étape dans le domaine informatique',
-          image: FullStack,
+          image: Euro,
           space: 5
         },
         {
@@ -37,7 +34,7 @@ const defaultCategories = {
           'et vous pourrez entrer avec plus de confiance. Une grande partie de la préparation ' +
           'd\'un entretien consiste à passer en revue certaines questions d\'entretien courantes' + 
           ' et à réfléchir à la manière dont vous y répondrez.',
-          image: Design,
+          image: Euro,
           space: 5
         },
         {
@@ -45,7 +42,7 @@ const defaultCategories = {
           title: 'Backend Developer',
           description: 'Pratiquer toutes les questions de compétences backend,' 
           +'de la conception de l\'API à la mise en œuvre et aux meilleures pratiques',
-          image: Back,
+          image: Euro,
           space: 5
         },
         {
@@ -54,7 +51,7 @@ const defaultCategories = {
           description: 'Assurez-vous d\'avoir les connaissances nécessaires pour obtenir ' +
           'votre premier emploi en tant qu\'ingénieur frontend et grandir dans ' +
           'votre première étape dans le domaine informatique',
-          image: Front,
+          image: Euro,
           space: 5
         },
       ],
@@ -84,7 +81,7 @@ const defaultCategories = {
         description: 'Assurez-vous d\'avoir les connaissances nécessaires pour obtenir ' +
         'votre premier emploi en tant qu\'ingénieur Fullstack web et grandir dans ' +
         'votre première étape dans le domaine informatique',
-        image: FullStack,
+        image: Euro,
         space: 5
       },
       {
@@ -95,7 +92,7 @@ const defaultCategories = {
         'et vous pourrez entrer avec plus de confiance. Une grande partie de la préparation ' +
         'd\'un entretien consiste à passer en revue certaines questions d\'entretien courantes' + 
         ' et à réfléchir à la manière dont vous y répondrez.',
-        image: Design,
+        image: Euro,
         space: 5
       },
       {
@@ -103,7 +100,7 @@ const defaultCategories = {
         title: 'Backend Developer',
         description: 'Pratiquer toutes les questions de compétences backend,' 
         +'de la conception de l\'API à la mise en œuvre et aux meilleures pratiques',
-        image: Back,
+        image: Euro,
         space: 5
       },
       {
@@ -112,7 +109,7 @@ const defaultCategories = {
         description: 'Assurez-vous d\'avoir les connaissances nécessaires pour obtenir ' +
         'votre premier emploi en tant qu\'ingénieur frontend et grandir dans ' +
         'votre première étape dans le domaine informatique',
-        image: Front,
+        image: Euro,
         space: 5
       },
     ],
