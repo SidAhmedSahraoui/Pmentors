@@ -24,3 +24,17 @@ export interface User {
     isExist: boolean;
     formValid: boolean;
   }
+
+// Category
+export interface Category {
+  id: number,
+  title: string ;
+  description: string ;
+  space: string ;
+}
+
+
+// Categories
+export interface Categories {
+  categories: Array<Category>
+}

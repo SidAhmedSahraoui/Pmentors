@@ -9,7 +9,6 @@ import {
 import { faTwitter, faDiscord, faLinkedin} from "@fortawesome/free-brands-svg-icons";
 import Logo from '../../public/logo.svg';
 import Image from "next/image";
-import Arrow from "../../public/arrow.svg";
 
 const services = [
     {
@@ -127,19 +126,19 @@ export default function Navbar() {
                                                 className="absolute w-96 h-fit left-1/2 z-10 mt-3 -translate-x-1/2 transform px-4 sm:px-0">
                                                 <div
                                                     className="overflow-hidden h-full rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                                                    <div className="relative h-full flex-col justify-evenly items-center content-center bg-modal-color p-7 backdrop-blur-lg">
+                                                    <div className="relative h-full flex-col justify-evenly items-center content-center backdrop-blur-sm bg-gray-one p-7">
                                                         {services.map((item) => (
                                                             <Link
                                                                 key={item.name}
                                                                 href={item.href}
-                                                                className="flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-modal-color focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                                                                className="flex items-center rounded-lg p-2 transition duration-150  ease-in-out hover:bg-modal-color focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
                                                             >
                                                                 <div
                                                                     className="flex h-10 w-10 shrink-0 items-center justify-center text-white bg-purple-one bg-gradient-to-r from-purple-two to-blue-one rounded-md sm:h-12 sm:w-12">
                                                                     <FontAwesomeIcon className='icon h-6 w-6'  icon={item.icon} />
                                                                 </div>
                                                                 <div className="ml-4">
-                                                                    <p className="text-sm font-medium text-white">
+                                                                    <p className="text-base font-bold text-white">
                                                                         {item.name}
                                                                     </p>
                                                                     <p className="text-sm text-sub-text">
@@ -178,10 +177,10 @@ export default function Navbar() {
                                             leaveTo="opacity-0 translate-y-1"
                                         >
                                             <Popover.Panel
-                                                className="absolute w-96 h-fit left-1/2 z-10 mt-3 -translate-x-1/2 transform px-4 sm:px-0">
+                                                className="absolute w-96 h-fit left-1/2 mt-3 -translate-x-1/2 transform px-4 sm:px-0">
                                                 <div
                                                     className="overflow-hidden h-full rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                                                    <div className="relative h-full flex-col justify-evenly items-center content-center bg-modal-color p-7 backdrop-blur-lg">
+                                                    <div className="relative h-full flex-col justify-evenly items-center z-999 content-center bg-modal-color p-7 backdrop-blur-lg">
                                                         {about.map((item) => (
                                                             <Link
                                                                 key={item.name}
