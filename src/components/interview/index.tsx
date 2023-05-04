@@ -1,10 +1,18 @@
 import React from "react";
+import Link from 'next/link'
 import useStyles from "./style";
 import { Categories } from "@/types/types";
 import { Tab } from '@headlessui/react'
 import Image from 'next/image';
 import Euro from '../../../public/img/Euro.png' 
-
+import Inter from '../../../public/img/interview.png'
+import Back from '../../../public/img/backend.png'
+import Front from '../../../public/img/frontend.png'
+import UI from '../../../public/img/design.png'
+import Full from '../../../public/img/fullstack.png'
+import Canada from '../../../public/img/canada.png'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons";
 
 
 const defaultCategories = {
@@ -23,18 +31,18 @@ const defaultCategories = {
           description: 'Assurez-vous d\'avoir les connaissances nécessaires pour obtenir ' +
           'votre premier emploi en tant qu\'ingénieur Fullstack web et grandir dans ' +
           'votre première étape dans le domaine informatique',
-          image: Euro,
+          image: Full,
           space: 5
         },
         {
           id: 1,
           title: 'UI/UX Designer',
-          description: 'Les entretiens peuvent être intimidants. Passez un peu de temps à ' +
+          description: 'Passez un peu de temps à ' +
           'préparer votre prochain entretien avec un concepteur d\'expérience utilisateur (UX) ' +
           'et vous pourrez entrer avec plus de confiance. Une grande partie de la préparation ' +
           'd\'un entretien consiste à passer en revue certaines questions d\'entretien courantes' + 
           ' et à réfléchir à la manière dont vous y répondrez.',
-          image: Euro,
+          image: UI,
           space: 5
         },
         {
@@ -42,7 +50,7 @@ const defaultCategories = {
           title: 'Backend Developer',
           description: 'Pratiquer toutes les questions de compétences backend,' 
           +'de la conception de l\'API à la mise en œuvre et aux meilleures pratiques',
-          image: Euro,
+          image: Back,
           space: 5
         },
         {
@@ -51,7 +59,7 @@ const defaultCategories = {
           description: 'Assurez-vous d\'avoir les connaissances nécessaires pour obtenir ' +
           'votre premier emploi en tant qu\'ingénieur frontend et grandir dans ' +
           'votre première étape dans le domaine informatique',
-          image: Euro,
+          image: Front,
           space: 5
         },
       ],
@@ -69,7 +77,7 @@ const defaultCategories = {
         title: 'Entretien Etudier a Canada',
         description: 'Pratiquez l\'entretien Etudier a Canada avec nos experts n\'hésitez plus ! '+
         'réservez maintenant un entretien 1: 1 et augmentez vos chances d\'être accepté,',
-        image: Euro,
+        image: Canada,
         space: 1
       },
     ],
@@ -81,18 +89,18 @@ const defaultCategories = {
         description: 'Assurez-vous d\'avoir les connaissances nécessaires pour obtenir ' +
         'votre premier emploi en tant qu\'ingénieur Fullstack web et grandir dans ' +
         'votre première étape dans le domaine informatique',
-        image: Euro,
+        image: Full,
         space: 5
       },
       {
         id: 1,
         title: 'UI/UX Designer',
-        description: 'Les entretiens peuvent être intimidants. Passez un peu de temps à ' +
+        description: 'Passez un peu de temps à ' +
         'préparer votre prochain entretien avec un concepteur d\'expérience utilisateur (UX) ' +
         'et vous pourrez entrer avec plus de confiance. Une grande partie de la préparation ' +
         'd\'un entretien consiste à passer en revue certaines questions d\'entretien courantes' + 
         ' et à réfléchir à la manière dont vous y répondrez.',
-        image: Euro,
+        image: UI,
         space: 5
       },
       {
@@ -100,7 +108,7 @@ const defaultCategories = {
         title: 'Backend Developer',
         description: 'Pratiquer toutes les questions de compétences backend,' 
         +'de la conception de l\'API à la mise en œuvre et aux meilleures pratiques',
-        image: Euro,
+        image: Back,
         space: 5
       },
       {
@@ -109,7 +117,7 @@ const defaultCategories = {
         description: 'Assurez-vous d\'avoir les connaissances nécessaires pour obtenir ' +
         'votre premier emploi en tant qu\'ingénieur frontend et grandir dans ' +
         'votre première étape dans le domaine informatique',
-        image: Euro,
+        image: Front,
         space: 5
       },
     ],
@@ -118,7 +126,7 @@ const defaultCategories = {
           id: 1,
           title: 'Programme Campus France',
           description: 'Préparation aux entretiens de Campus France',
-          image: Euro,
+          image: Inter,
           space: 5
         },
         
@@ -164,7 +172,8 @@ const Index: React.FC<Categories> = ({ categories }) => {
                 {posts.map((post) => (
                   <li
                     key={post.id}
-                    className="flex flex-row rounded-xl w-xl mb-4 bg-gray-800 h-3xl w-fit"
+                    className="flex flex-row rounded-xl mb-4 bg-gray-800 h-fit w-fit"
+                    dir="ltr"
                   >
                     <Image
                             alt="category image"
@@ -180,13 +189,24 @@ const Index: React.FC<Categories> = ({ categories }) => {
                             }}
                         />
                     <div className="p-4 w-fit">
-                      <h3 className="text-gray-100 text-xl font-medium leading-5">
+                      <h3 className="text-gray-100 text-xl font-bold leading-5">
                         {post.title}
                       </h3>
-                      <h6 className="text-gray-400 text-sm font-normal pt-2 max-w-lg leading-5">
+                      <h6 className="text-gray-400 text-sm font-normal pt-2  mb-4 max-w-xl leading-5">
                         {post.description}
                       </h6>
+                      <Link href='/' className='px-4 py-2 mt-4 text-white rounded-md border-2' >
+                              {'Plus d\'infos'}
+                      </Link>
                     </div>  
+                    <Link href='/' className="p-4 w-fit flex flex-col justify-start bg-bg-green rounded-r-xl" >
+                          <h4  className='h-fit w-full text-white text-lg font-bold text-center' >
+                            Réserver 
+                            <br/>
+                            un rendez-vous
+                          </h4>
+                          <FontAwesomeIcon icon={faCalendarCheck} className='text-white w-[24px] h-[24px] m-auto text-center text-sm mt-2' />
+                    </Link>  
                   </li>
                 ))}
               </ul>

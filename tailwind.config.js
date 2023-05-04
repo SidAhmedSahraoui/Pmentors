@@ -14,7 +14,8 @@ module.exports = {
         'purple-two': '#9333ea',
         'blue-one': '#4f46e5',
         'card-bg': '#F2E7FE',
-        'bg-color': 'rgba(245, 245, 245, 1)'
+        'bg-color': 'rgba(245, 245, 245, 1)',
+        'bg-green': '#0ead69',
       },
       boxShadow: {
         '3xl': '0 10px 15px -3px rgb(0 0 0 / 0.1)',
