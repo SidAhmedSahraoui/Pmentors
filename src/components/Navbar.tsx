@@ -90,26 +90,6 @@ const communities = [
 ];
 
 export default function Navbar() {
-  return (
-    <>
-      <div className="px-4 mx-auto bg-bg-color sm:px-6 lg:px-8 h-20 border-b-2 rounded-b-2xl drop-shadow-sm w-screen">
-        <div className="flex justify-between h-full">
-          <Link className="flex items-center w-fit cursor-default" href="/">
-            <Image
-              alt="Pmentors Logo"
-              src={Logo}
-              width={150}
-              height={25}
-              className="cursor-pointer"
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-              }}
-            />
-          </Link>
-
-<<<<<<< HEAD
-
     return (
         <>
             <div className="px-4 mx-auto bg-white sm:px-6 lg:px-8 h-20 border-b-2 rounded-b-2xl drop-shadow-sm w-screen">
@@ -140,21 +120,6 @@ export default function Navbar() {
                                             <span>Services</span>
                                             <ChevronDownIcon
                                                 className={`${open ? '' : 'text-opacity-70'}
-=======
-          <div className="flex items-center w-120">
-            <div className="flex justify-between items-center w-full">
-              <Popover className="relative">
-                {({ open }) => (
-                  <>
-                    <Popover.Button
-                      className={`${
-                        open ? "" : "text-opacity-90"
-                      }group inline-flex items-center border-0 outline-0  px-3 py-2 text-base font-medium text-gray-one`}
-                    >
-                      <span>Services</span>
-                      <ChevronDownIcon
-                        className={`${open ? "" : "text-opacity-70"}
->>>>>>> refs/remotes/origin/master
                                                  ml-2 h-5 w-5 font-bold text-gray-one transition duration-150 ease-in-out group-hover:text-opacity-80`}
                         aria-hidden="true"
                       />
