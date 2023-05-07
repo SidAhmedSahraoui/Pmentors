@@ -44,7 +44,7 @@ export default function Header() {
                     <br/>
                     <Link
                         href='/signup'
-                        className='inline-block rounded-2xl w-auto border bg-blue-one shadow-[inset_0_-5px_0_0_rgb(0_0_0_/_8%),0_4px_4px_0_rgb(0_0_0_/_4%)] text-white py-2 px-4 mt-4 border-solid border-[rgba(56,56,56,0.08)]'>
+                        className='inline-block rounded-2xl w-auto border bg-purple-one shadow-[inset_0_-5px_0_0_rgb(0_0_0_/_8%),0_4px_4px_0_rgb(0_0_0_/_4%)] text-white py-2 px-4 mt-4 border-solid border-[background: rgba(76, 76, 240, 0.8)]'>
                         <span>Inscrit vous</span>
                     </Link>
                 </div>
@@ -63,7 +63,7 @@ export default function Header() {
                     </p>
                     <Link
                         href='/'
-                        className='inline-block rounded-2xl w-auto border bg-blue-one shadow-[inset_0_-5px_0_0_rgb(0_0_0_/_8%),0_4px_4px_0_rgb(0_0_0_/_4%)] text-white py-2 px-4 mt-4 border-solid border-[rgba(56,56,56,0.08)]'>
+                        className='inline-block rounded-2xl w-auto border bg-purple-one shadow-[inset_0_-5px_0_0_rgb(0_0_0_/_8%),0_4px_4px_0_rgb(0_0_0_/_4%)] text-white py-2 px-4 mt-4 border-solid border-[background: rgba(76, 76, 240, 0.8)]'>
                         <span>Prendre RDV</span>
                     </Link>
                 </div>
@@ -81,7 +81,7 @@ export default function Header() {
                     </p>
                     <Link
                         href='/'
-                        className='inline-block rounded-2xl w-auto border bg-blue-one shadow-[inset_0_-5px_0_0_rgb(0_0_0_/_8%),0_4px_4px_0_rgb(0_0_0_/_4%)] text-white py-2 px-4 mt-4 border-solid border-[rgba(56,56,56,0.08)]'>
+                        className='inline-block rounded-2xl w-auto border bg-purple-one shadow-[inset_0_-5px_0_0_rgb(0_0_0_/_8%),0_4px_4px_0_rgb(0_0_0_/_4%)] text-white py-2 px-4 mt-4 border-solid border-[background: rgba(76, 76, 240, 0.8)]'>
                         <span>Prendre RDV</span>
                     </Link>
                 </div>
@@ -98,7 +98,7 @@ export default function Header() {
                     </p>
                     <Link
                         href='/'
-                        className='inline-block rounded-2xl w-auto border bg-blue-one shadow-[inset_0_-5px_0_0_rgb(0_0_0_/_8%),0_4px_4px_0_rgb(0_0_0_/_4%)] text-white py-2 px-4 mt-4 border-solid border-[rgba(56,56,56,0.08)]'>
+                        className='inline-block rounded-2xl w-auto border bg-purple-one shadow-[inset_0_-5px_0_0_rgb(0_0_0_/_8%),0_4px_4px_0_rgb(0_0_0_/_4%)] text-white py-2 px-4 mt-4 border-solid border-[background: rgba(76, 76, 240, 0.8)]'>
                         <span>Prendre RDV</span>
                     </Link>
                 </div>

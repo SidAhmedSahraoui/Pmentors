@@ -81,7 +81,7 @@ export default function Navbar() {
 
     return (
         <>
-            <div className="px-4 mx-auto bg-bg-color sm:px-6 lg:px-8 h-20 border-b-2 rounded-b-2xl drop-shadow-sm w-screen">
+            <div className="px-4 mx-auto bg-white sm:px-6 lg:px-8 h-20 border-b-2 rounded-b-2xl drop-shadow-sm w-screen">
                 <div className="flex justify-between h-full">
                     <Link className="flex items-center w-fit cursor-default" href='/'>
                         <Image
